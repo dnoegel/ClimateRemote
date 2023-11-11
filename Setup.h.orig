@@ -1,0 +1,15 @@
+#define WIFI_SSID "YOUR-HOME-WIFI"
+#define WIFI_PASSWORD "PASSWORD"
+#define HOSTNAME "climateremote" // desired host name of your ESP32
+#define MqttBroker "192.168.1.111" // IP of your MQTT broker
+#define MqttPort 1884 // Port of your MQTT broker
+#define SERIAL_SPEED 9600
+#define OTA_HASH "OTA-HASH"
+
+// #define READ_MODE
+
+#ifdef READ_MODE
+#define IR_RECEIVE_PIN 32
+#else
+#define IR_SEND_PIN 32
+#endif
