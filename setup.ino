@@ -80,6 +80,11 @@ void loopMqtt() {
 }
 
 void callback(char* topic, byte* message, unsigned int length) {
+  // ignore all events that are just repeated when the client registers
+  if (millis() < 1000 * 10) {
+    return;
+  }
+
   Serial.print("Message arrived on topic: ");
   Serial.print(topic);
   Serial.print(". Message: ");

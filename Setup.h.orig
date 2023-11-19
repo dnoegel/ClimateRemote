@@ -13,3 +13,6 @@
 #else
 #define IR_SEND_PIN 32
 #endif
+
+#define PHOTO_DIODE_PIN 34
+#define PHOTO_DIODE_THRESHOLD 4000

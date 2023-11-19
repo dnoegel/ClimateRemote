@@ -42,6 +42,14 @@ In read mode, open the serial monitor of your arduino IDE, press the button on y
 
 Once you noted the IR codes, uncomment the `READ_MODE` line again and adjust the sketch as described below. 
 
+## PHOTO_DIODE_*
+I use a photo diode (BPW 40) to identify if the AC is running. The diode is glued to one of the LEDs of the AC which only glow when the AC is active. When the value returned by the diode is below a given threshold, the AC is considered active. This information is then published via MQTT so I can show it in e.g. my Iobroker visualization. 
+
+```
+#define PHOTO_DIODE_PIN 34 
+#define PHOTO_DIODE_THRESHOLD 4000
+```
+
 # Adjusting the sketch
 Currently the sketch subscribes to the MQTT topic `mqtt.0.climateremote.desired_status` and calls the function `sendOn` or `sendOff` depending on the value of the MQTT message. To change the MQTT topic or the values it should react to, please modify the function `callback` in `setup.ino`.
 
